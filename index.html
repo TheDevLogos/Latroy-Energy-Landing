@@ -23,30 +23,31 @@
        Edita aquí colores, anchos y tamaños del logo.
     ========================================================= */
     :root {
-      --color-primary: #0a5638;
-      --color-accent: #b9f451;
-      --color-ink: #121714;
-      --color-paper: #f4f6f1;
-      --color-muted: #667169;
-      --color-line: #dae1da;
-      --color-white: #ffffff;
+  --color-primary: #0a5638;
+  --color-accent: #b9f451;
+  --color-ink: #121714;
+  --color-paper: #f4f6f1;
+  --color-muted: #667169;
+  --color-line: #dae1da;
+  --color-white: #ffffff;
 
-      --container-width: 1180px;
-      --container-gap: 40px;
+  --container-width: 1180px;
+  --container-gap: 40px;
 
-      --logo-url: "https://drive.google.com/uc?export=view&id=1tHQDPiIrbptMwH6iIHZ1VhFizpSCygTc";
+  /* Usa la versión thumbnail como fuente principal visual */
+  --logo-url: "https://drive.google.com/thumbnail?id=1tHQDPiIrbptMwH6iIHZ1VhFizpSCygTc&sz=w1000";
+  --logo-url-fallback: "https://drive.google.com/uc?export=download&id=1tHQDPiIrbptMwH6iIHZ1VhFizpSCygTc";
 
-      --logo-header-height-desktop: 56px;
-      --logo-header-height-mobile: 42px;
-      --logo-footer-height-desktop: 46px;
-      --logo-footer-height-mobile: 38px;
+  --logo-header-height-desktop: 56px;
+  --logo-header-height-mobile: 42px;
+  --logo-footer-height-desktop: 46px;
+  --logo-footer-height-mobile: 38px;
 
-      --logo-header-max-width-desktop: 240px;
-      --logo-header-max-width-mobile: 180px;
-      --logo-footer-max-width-desktop: 220px;
-      --logo-footer-max-width-mobile: 170px;
-    }
-
+  --logo-header-max-width-desktop: 240px;
+  --logo-header-max-width-mobile: 180px;
+  --logo-footer-max-width-desktop: 220px;
+  --logo-footer-max-width-mobile: 170px;
+}
     /* =========================================================
        RESET BÁSICO
     ========================================================= */
@@ -129,34 +130,35 @@
     }
 
     /* =========================================================
-       LOGO REUTILIZABLE
-       Si cambias de archivo/logo, edita solo la URL del img.
-    ========================================================= */
-    .brand {
-      display: inline-flex;
-      align-items: center;
-      line-height: 0;
-      text-decoration: none;
-      flex-shrink: 0;
-    }
+   LOGO REUTILIZABLE
+   Si cambias de archivo/logo, edita solo la URL del img.
+========================================================= */
+.brand {
+  display: inline-flex;
+  align-items: center;
+  line-height: 0;
+  text-decoration: none;
+  flex-shrink: 0;
+}
 
-    .brand__logo {
-      display: block;
-      width: auto;
-      max-width: 100%;
-      height: auto;
-      object-fit: contain;
-    }
+.brand__logo {
+  display: block;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  object-fit: contain;
+  overflow: hidden;
+}
 
-    .brand--header .brand__logo {
-      height: var(--logo-header-height-desktop);
-      max-width: var(--logo-header-max-width-desktop);
-    }
+.brand--header .brand__logo {
+  height: var(--logo-header-height-desktop);
+  max-width: var(--logo-header-max-width-desktop);
+}
 
-    .brand--footer .brand__logo {
-      height: var(--logo-footer-height-desktop);
-      max-width: var(--logo-footer-max-width-desktop);
-    }
+.brand--footer .brand__logo {
+  height: var(--logo-footer-height-desktop);
+  max-width: var(--logo-footer-max-width-desktop);
+}
 
     /* =========================================================
        HEADER / NAVEGACIÓN
@@ -789,19 +791,22 @@
   ======================================================== -->
   <header class="nav-shell">
     <div class="wrap">
-      <a
-        class="brand brand--header"
-        href="#inicio"
-        aria-label="Ir al inicio de LATROY ENERGY"
-      >
-        <img
-          src="https://drive.google.com/uc?export=view&id=1tHQDPiIrbptMwH6iIHZ1VhFizpSCygTc"
-          alt="Logotipo de LATROY ENERGY"
-          class="brand__logo"
-          loading="eager"
-          decoding="async"
-        >
-      </a>
+      <!-- HEADER -->
+<a
+  class="brand brand--header"
+  href="#inicio"
+  aria-label="Ir al inicio de LATROY ENERGY"
+>
+  <img
+    src="https://drive.google.com/thumbnail?id=1tHQDPiIrbptMwH6iIHZ1VhFizpSCygTc&sz=w1000"
+    alt="Logotipo de LATROY ENERGY"
+    class="brand__logo"
+    loading="eager"
+    decoding="async"
+    referrerpolicy="no-referrer"
+    onerror="if(!this.dataset.fallback){this.dataset.fallback='1';this.src='https://drive.google.com/uc?export=download&id=1tHQDPiIrbptMwH6iIHZ1VhFizpSCygTc';}"
+  >
+</a>
 
       <nav class="main-nav" aria-label="Navegación principal">
         <a href="#soluciones">Soluciones</a>
@@ -1197,20 +1202,22 @@
     <div class="wrap">
       <div class="footer-grid">
         <div>
-          <a
-            class="brand brand--footer"
-            href="#inicio"
-            aria-label="Volver al inicio"
-          >
-            <img
-              src="https://drive.google.com/uc?export=view&id=1tHQDPiIrbptMwH6iIHZ1VhFizpSCygTc"
-              alt="Logotipo de LATROY ENERGY"
-              class="brand__logo"
-              loading="lazy"
-              decoding="async"
-            >
-          </a>
-
+      <!-- FOOTER -->
+<a
+  class="brand brand--footer"
+  href="#inicio"
+  aria-label="Volver al inicio"
+>
+  <img
+    src="https://drive.google.com/thumbnail?id=1tHQDPiIrbptMwH6iIHZ1VhFizpSCygTc&sz=w1000"
+    alt="Logotipo de LATROY ENERGY"
+    class="brand__logo"
+    loading="lazy"
+    decoding="async"
+    referrerpolicy="no-referrer"
+    onerror="if(!this.dataset.fallback){this.dataset.fallback='1';this.src='https://drive.google.com/uc?export=download&id=1tHQDPiIrbptMwH6iIHZ1VhFizpSCygTc';}"
+  >
+</a>
           <p class="brand-copy">
             Generación, eficiencia, movilidad eléctrica y mantenimiento para
             cada espacio.

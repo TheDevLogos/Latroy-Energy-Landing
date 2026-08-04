@@ -34,12 +34,17 @@
       --container-width: 1180px;
       --container-gap: 40px;
 
-      --logo-url: "https://drive.google.com/thumbnail?id=1tHQDPiIrbptMwH6iIHZ1VhFizpSCygTc&sz=w1000";
+      --logo-url: "https://drive.google.com/uc?export=view&id=1tHQDPiIrbptMwH6iIHZ1VhFizpSCygTc";
 
       --logo-header-height-desktop: 56px;
       --logo-header-height-mobile: 42px;
       --logo-footer-height-desktop: 46px;
       --logo-footer-height-mobile: 38px;
+
+      --logo-header-max-width-desktop: 240px;
+      --logo-header-max-width-mobile: 180px;
+      --logo-footer-max-width-desktop: 220px;
+      --logo-footer-max-width-mobile: 170px;
     }
 
     /* =========================================================
@@ -132,9 +137,11 @@
       align-items: center;
       line-height: 0;
       text-decoration: none;
+      flex-shrink: 0;
     }
 
     .brand__logo {
+      display: block;
       width: auto;
       max-width: 100%;
       height: auto;
@@ -143,10 +150,12 @@
 
     .brand--header .brand__logo {
       height: var(--logo-header-height-desktop);
+      max-width: var(--logo-header-max-width-desktop);
     }
 
     .brand--footer .brand__logo {
       height: var(--logo-footer-height-desktop);
+      max-width: var(--logo-footer-max-width-desktop);
     }
 
     /* =========================================================
@@ -676,10 +685,12 @@
 
       .brand--header .brand__logo {
         height: var(--logo-header-height-mobile);
+        max-width: var(--logo-header-max-width-mobile);
       }
 
       .brand--footer .brand__logo {
         height: var(--logo-footer-height-mobile);
+        max-width: var(--logo-footer-max-width-mobile);
       }
 
       .intro,
@@ -774,7 +785,7 @@
 <body>
   <!-- =======================================================
        HEADER
-       Logo real en miniatura directa de Google Drive
+       Logo optimizado con <img> y URL directa
   ======================================================== -->
   <header class="nav-shell">
     <div class="wrap">
@@ -784,7 +795,7 @@
         aria-label="Ir al inicio de LATROY ENERGY"
       >
         <img
-          src="https://drive.google.com/thumbnail?id=1tHQDPiIrbptMwH6iIHZ1VhFizpSCygTc&sz=w1000"
+          src="https://drive.google.com/uc?export=view&id=1tHQDPiIrbptMwH6iIHZ1VhFizpSCygTc"
           alt="Logotipo de LATROY ENERGY"
           class="brand__logo"
           loading="eager"
@@ -1180,7 +1191,7 @@
 
   <!-- =======================================================
        FOOTER
-       Logo real en miniatura directa de Google Drive
+       Logo optimizado con <img> y URL directa
   ======================================================== -->
   <footer class="footer">
     <div class="wrap">
@@ -1192,7 +1203,7 @@
             aria-label="Volver al inicio"
           >
             <img
-              src="https://drive.google.com/thumbnail?id=1tHQDPiIrbptMwH6iIHZ1VhFizpSCygTc&sz=w1000"
+              src="https://drive.google.com/uc?export=view&id=1tHQDPiIrbptMwH6iIHZ1VhFizpSCygTc"
               alt="Logotipo de LATROY ENERGY"
               class="brand__logo"
               loading="lazy"
